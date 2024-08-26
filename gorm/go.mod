@@ -3,7 +3,7 @@ module github.com/ryanskidmore/libsql-vector-go/gorm
 go 1.22.0
 
 require (
-	github.com/ryanskidmore/libsql-vector-go v0.1.1
+	github.com/ryanskidmore/libsql-vector-go v0.1.3
 	gorm.io/gorm v1.25.11
 )
 

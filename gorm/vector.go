@@ -29,29 +29,47 @@ func NewVector(vec []float32) Vector {
 }
 
 func (v Vector) Slice() []float32 {
+	if v.v == nil {
+		return nil
+	}
 	return v.v.Slice()
 }
 
 func (v Vector) FormatFloats() string {
-	return ""
+	if v.v == nil {
+		return ""
+	}
+	return v.v.FormatFloats()
 }
 
 // String returns a string representation of the vector
 func (v Vector) String() string {
+	if v.v == nil {
+		return ""
+	}
 	return v.v.String()
 }
 
 func (v *Vector) Parse(s string) error {
+	if v.v == nil {
+		return nil
+	}
 	return v.v.Parse(s)
 }
 
 // EncodeBinary encodes a binary representation of the vector.
 func (v Vector) EncodeBinary(buf []byte) (newBuf []byte, err error) {
+	if v.v == nil {
+		return nil, nil
+	}
 	return v.v.EncodeBinary(buf)
 }
 
 // DecodeBinary decodes a binary representation of a vector.
 func (v *Vector) DecodeBinary(buf []byte) error {
+	if v.v == nil {
+		return nil
+	}
 	return v.v.DecodeBinary(buf)
 }
 
@@ -60,6 +78,9 @@ var _ sql.Scanner = (*Vector)(nil)
 
 // Scan implements the sql.Scanner interface.
 func (v *Vector) Scan(src interface{}) (err error) {
+	if v.v == nil {
+		return nil
+	}
 	return v.v.Scan(src)
 }
 
@@ -68,6 +89,9 @@ var _ driver.Valuer = (*Vector)(nil)
 
 // Value implements the driver.Valuer interface.
 func (v Vector) Value() (driver.Value, error) {
+	if v.v == nil {
+		return nil, nil
+	}
 	return v.v.String(), nil
 }
 
@@ -76,6 +100,9 @@ var _ json.Marshaler = (*Vector)(nil)
 
 // MarshalJSON implements the json.Marshaler interface.
 func (v Vector) MarshalJSON() ([]byte, error) {
+	if v.v == nil {
+		return nil, nil
+	}
 	return v.v.MarshalJSON()
 }
 
@@ -84,5 +111,8 @@ var _ json.Unmarshaler = (*Vector)(nil)
 
 // UnmarshalJSON implements the json.Unmarshaler interface.
 func (v *Vector) UnmarshalJSON(data []byte) error {
+	if v.v == nil {
+		return nil
+	}
 	return v.v.UnmarshalJSON(data)
 }
