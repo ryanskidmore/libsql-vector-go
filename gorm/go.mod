@@ -1,6 +1,6 @@
 module github.com/ryanskidmore/libsql-vector-go/gorm
 
-go 1.23.0
+go 1.22.0
 
 require (
 	github.com/ryanskidmore/libsql-vector-go v0.1.1
