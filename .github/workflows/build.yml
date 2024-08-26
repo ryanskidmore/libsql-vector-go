@@ -15,3 +15,5 @@ jobs:
           cache: false # depends on go.sum
       - run: go mod tidy
       - run: go test -v
+      - run: cd gorm && go mod tidy
+      - run: go test -v

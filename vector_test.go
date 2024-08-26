@@ -58,7 +58,7 @@ func TestVectorFormatFloats(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			vec := Vector{vec: tt.vec}
-			result := vec.formatFloats()
+			result := vec.FormatFloats()
 			if result != tt.expected {
 				t.Errorf("formatFloats() = %v, want %v", result, tt.expected)
 			}

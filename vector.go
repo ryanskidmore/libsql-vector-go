@@ -27,7 +27,7 @@ func (v Vector) Slice() []float32 {
 	return v.vec
 }
 
-func (v Vector) formatFloats() string {
+func (v Vector) FormatFloats() string {
 	buf := make([]byte, 0, 2+16*len(v.vec))
 	buf = append(buf, '[')
 
@@ -46,7 +46,7 @@ func (v Vector) formatFloats() string {
 func (v Vector) String() string {
 	buf := make([]byte, 0, 9+16*len(v.vec))
 	buf = append(buf, "vector('"...)
-	buf = append(buf, v.formatFloats()...)
+	buf = append(buf, v.FormatFloats()...)
 	buf = append(buf, "')"...)
 	return string(buf)
 }
